@@ -1,7 +1,8 @@
-@import "tailwindcss";
+
 
 
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
+@import "tailwindcss";
 @import "tailwindcss";
 @theme {
   --color-primary: #030412;
