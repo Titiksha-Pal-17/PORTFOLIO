@@ -1,61 +1,115 @@
-import React, { useState } from 'react';
-import {motion} from 'motion/react';
-function Navigation(){
-    return<ul className='nav-ul'>
-        <li className='nav-li'>
-        <a className='nav-link'>Home</a>
-        </li> 
-        <li className='nav-li'>
-        <a className='nav-link'>About</a>
-        </li>
-        <li className='nav-li'>
-        <a className='nav-link'>Work</a>
-        </li>
-        <li className='nav-li'>
-        <a className='nav-link'>Contact</a>
-        </li>
-        </ul>
-}
+import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
+
+const navLinks = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Work", href: "#work" },
+  { name: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
-    const[isOpen , setIsOpen] = useState(false);
-    return (
-        <div className='fixed  inset-x-0  z-20  w-full backdrop-blur-lg
-         bg-primary/40'>
-            <div className='mx-auto c-space max-w-7xl'>
-                <div className='flex items-center justify-between py-2
-                sm:py-0'>
-                    <a
-                     href="/"
-                     className='text-xl font bold transition-colors
-                    text-neutral-400 hover:text-white'>
-                    Titiksha 
-                    </a>
-                    <button onClick={()=> setIsOpen(!isOpen) } 
-                    className="flex cursor-pointer
-                     text-neutral-400 hover:text-white focus:outline-none sm:hidden"
-                     >
-                        <img src={ isOpen ? "assets/close.svg" : "assets/menu.svg"}
-                        className="w-6 h-6"
-                        alt="toggle"/>
-                    </button>
-                    <nav className="hidden sm:flex">
-                        <Navigation />
-                    </nav>
-                </div>
-            </div>
-            {isOpen && (<motion.div className='block-overflow-hidden text-center
-             sm:hidden' 
-             initial={{ opacity:0 , x:-10 }}
-             animate={{ opacity:1 , x:0}}
-             style={{maxHeight:"100vh"}}
-             transition={{ duration:1}}>
-                <nav className="pb-5">
-                        <Navigation />
-                    </nav>
-             </motion.div>)}
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
+  
+  // Track scroll progress and apply smooth spring physics
+  const { scrollYProgress } = useScroll();
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  return (
+    <>
+      {/* Desktop Floating Glass Dock */}
+      <nav className="hidden md:flex fixed top-10 left-1/2 -translate-x-1/2 z-50 w-max px-8 py-3 backdrop-blur-md bg-black/20 border border-white/10 rounded-full shadow-lg overflow-hidden">
+        <div className="flex items-center gap-6">
+          {/* Logo */}
+          <a
+            href="/"
+            className="text-xl font-bold transition-colors text-neutral-400 hover:text-white w-9 h-9 flex items-center justify-center"
+          >
+            Ali
+          </a>
+
+          {/* Navigation Links with Pill Animation */}
+          <div className="flex items-center gap-2 relative">
+            {navLinks.map((link) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                className="relative px-4 py-2 text-sm font-medium transition-colors text-neutral-400 hover:text-white z-10"
+                onMouseEnter={() => setActiveLink(link.href)}
+                onMouseLeave={() => setActiveLink("")}
+              >
+                {activeLink === link.href && (
+                  <motion.span
+                    layoutId="navbar-pill"
+                    className="absolute inset-0 bg-white/10 rounded-full"
+                    initial={false}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    }}
+                  />
+                )}
+                <span className="relative z-10">{link.name}</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
-    );
+        
+        {/* Mission Progress Indicator - Oxygen Bar */}
+        <motion.div
+          style={{ 
+            scaleX: smoothProgress,
+            transformOrigin: "left"
+          }}
+          className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-violet-500 to-cyan-400 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.8)]"
+        />
+      </nav>
+
+      {/* Mobile Hamburger Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden fixed top-5 right-5 z-50 flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none transition-colors"
+      >
+        <img
+          src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
+          className="w-6 h-6"
+          alt="toggle"
+        />
+      </button>
+
+      {/* Mobile Floating Glass Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="md:hidden fixed top-20 right-5 z-50 backdrop-blur-lg bg-storm/90 border border-white/10 rounded-2xl shadow-xl p-6 min-w-[200px]"
+            initial={{ opacity: 0, scale: 0.9, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            <nav className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-medium text-neutral-400 hover:text-white transition-colors py-2 px-3 rounded-lg hover:bg-white/5"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 };
 
 export default Navbar;
