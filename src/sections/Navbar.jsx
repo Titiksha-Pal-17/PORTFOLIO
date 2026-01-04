@@ -30,7 +30,7 @@ const Navbar = () => {
             href="/"
             className="text-xl font-bold transition-colors text-neutral-400 hover:text-white w-9 h-9 flex items-center justify-center"
           >
-            Ali
+            Titiksha
           </a>
 
           {/* Navigation Links with Pill Animation */}
