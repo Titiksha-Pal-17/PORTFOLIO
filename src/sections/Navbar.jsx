@@ -28,9 +28,9 @@ const Navbar = () => {
           {/* Logo */}
           <a
             href="/"
-            className="text-xl font-bold transition-colors text-neutral-400 hover:text-white w-9 h-9 flex items-center justify-center"
+            className="text-xl font-bold transition-colors text-zinc-400 hover:text-white w-9 h-9 flex items-center justify-center"
           >
-            Titiksha
+            Ali
           </a>
 
           {/* Navigation Links with Pill Animation */}
@@ -39,7 +39,7 @@ const Navbar = () => {
               <motion.a
                 key={link.href}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium transition-colors text-neutral-400 hover:text-white z-10"
+                className="relative px-4 py-2 text-sm font-medium transition-colors text-zinc-400 hover:text-white z-10"
                 onMouseEnter={() => setActiveLink(link.href)}
                 onMouseLeave={() => setActiveLink("")}
               >
@@ -74,7 +74,7 @@ const Navbar = () => {
       {/* Mobile Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-5 right-5 z-50 flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none transition-colors"
+        className="md:hidden fixed top-5 right-5 z-50 flex cursor-pointer text-zinc-400 hover:text-white focus:outline-none transition-colors"
       >
         <img
           src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
@@ -87,7 +87,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-20 right-5 z-50 backdrop-blur-lg bg-storm/90 border border-white/10 rounded-2xl shadow-xl p-6 min-w-[200px]"
+            className="md:hidden fixed top-20 right-5 z-50 backdrop-blur-lg bg-zinc-900/90 border border-white/10 rounded-2xl shadow-xl p-6 min-w-[200px]"
             initial={{ opacity: 0, scale: 0.9, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: -10 }}
@@ -99,7 +99,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-base font-medium text-neutral-400 hover:text-white transition-colors py-2 px-3 rounded-lg hover:bg-white/5"
+                  className="text-base font-medium text-zinc-400 hover:text-white transition-colors py-2 px-3 rounded-lg hover:bg-white/5"
                 >
                   {link.name}
                 </a>
