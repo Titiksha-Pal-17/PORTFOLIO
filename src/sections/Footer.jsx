@@ -1,4 +1,4 @@
-import { mySocials } from "../constants";
+
 
 
 const Footer = () => {
@@ -8,11 +8,14 @@ const Footer = () => {
       -to-r from-transparent via-neutral-700 to-transparent h-
       [1px] w-full" />
       
-       <div className="flex gap-3">
+      <div className="flex gap-2">
+           <p>+</p>
+           
+      </div>
+      <div className="flex gap-3">
         © 2026 Titiksha • Built with design, not templates
+        ))}
       </div>
-      </div>
-      
       
 
     </section>
