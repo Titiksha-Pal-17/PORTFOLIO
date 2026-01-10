@@ -25,13 +25,7 @@ const Navbar = () => {
       {/* Desktop Floating Glass Dock */}
       <nav className="hidden md:flex fixed top-10 left-1/2 -translate-x-1/2 z-50 w-max px-8 py-3 backdrop-blur-md bg-black/20 border border-white/10 rounded-full shadow-lg overflow-hidden">
         <div className="flex items-center gap-6">
-          {/* Logo */}
-          <a
-            href="/"
-            className="text-xl font-bold transition-colors text-zinc-400 hover:text-white w-9 h-9 flex items-center justify-center"
-          >
-            Ali
-          </a>
+          
 
           {/* Navigation Links with Pill Animation */}
           <div className="flex items-center gap-2 relative">
