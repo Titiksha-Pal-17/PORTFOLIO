@@ -12,9 +12,9 @@ const LetsConnect = () => {
 
   // Social links - filter and format
   const socialLinks = [
-    { name: "LinkedIn", url: mySocials.find(s => s.name === "Linkedin")?.href || "#", handle: "/ali-sanati" },
-    { name: "Instagram", url: mySocials.find(s => s.name === "Instagram")?.href || "#", handle: "@ali.sanatidev" },
-    { name: "Behance", url: "#", handle: "/ali-sanati" }, // Placeholder
+    { name: "LinkedIn", url: mySocials.find(s => s.name === "Linkedin")?.href || "#", handle: "/titiksha-pal" },
+    { name: "GitHub", url: mySocials.find(s => s.name === "GitHub")?.href || "#", handle: "Titiksha-Pal-17" },
+    { name: "Leetcode", url: mySocials.find(s => s.name === "Leetcode")?.href || "#", handle: "titiksha_17"  }, // Placeholder
   ];
 
   // Icon Components
