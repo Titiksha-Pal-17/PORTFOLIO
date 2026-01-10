@@ -4,10 +4,10 @@ import TorusScene from "./TorusScene";
 const LetsConnect = () => {
   // Contact information
   const contactInfo = {
-    name: "Ali",
-    email: "AliSanatiDev@gmail.com",
-    phone: "+1 (555) 123-4567", // Update with actual phone
-    location: "Your City, Country", // Update with actual location
+    name: "Titiksha",
+    email: "titikshapal765@gmail.com",
+    phone: "+91 7089030319", // Update with actual phone
+    location: "Jabalpur Engineering College", // Update with actual location
   };
 
   // Social links - filter and format
@@ -153,7 +153,7 @@ const LetsConnect = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </div>
-          <div className="text-xs text-zinc-400 mb-4">JANUARY 2025</div>
+          <div className="text-xs text-zinc-400 mb-4">JANUARY 2026</div>
           <div className="space-y-2">
             {socialLinks.map((social, index) => (
               <a
@@ -185,7 +185,7 @@ const LetsConnect = () => {
             
             {/* Overlay text positioned absolutely over canvas */}
             <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between pointer-events-none">
-              <div className="text-xs text-zinc-400">PORTFOLIO: ali-sanati.dev</div>
+              <div className="text-xs text-zinc-400">PORTFOLIO: titiksha-pal.dev</div>
               <div className="text-right">
                 <p className="text-xs text-zinc-400 mb-1">27 02 2025</p>
                 <p className="text-sm md:text-base text-white">
@@ -193,7 +193,7 @@ const LetsConnect = () => {
                   <span className="font-sans font-bold">Attention</span>{" "}
                   <span className="font-serif italic">Economy</span>
                 </p>
-                <p className="text-xs text-zinc-400 mt-2">DESIGNED BY ALI</p>
+                <p className="text-xs text-zinc-400 mt-2">DESIGNED BY TITIKSHA</p>
               </div>
             </div>
           </div>
