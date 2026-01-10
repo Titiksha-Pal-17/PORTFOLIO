@@ -225,18 +225,18 @@ export const myProjects = [
 
 export const mySocials = [
   {
-    name: "WhatsApp",
-    href: "",
+    name: "GitHub",
+    href: "https://github.com/titiksha-Pal-17/",
     icon: "/assets/socials/whatsApp.svg",
   },
   {
     name: "Linkedin",
-    href: "https://www.linkedin.com/in/ali-sanati/",
+    href: "https://www.linkedin.com/in/titiksha-pal/",
     icon: "/assets/socials/linkedIn.svg",
   },
   {
-    name: "Instagram",
-    href: "https://www.instagram.com/ali.sanatidev/reels/",
+    name: "Leetcode",
+    href: "https://leetcode.com/u/titiksha_17/",
     icon: "/assets/socials/instagram.svg",
   },
 ];
